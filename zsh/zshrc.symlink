@@ -27,6 +27,11 @@ then
   source ~/.localrc
 fi
 
+# rvm http://stackoverflow.com/questions/9752779/rvm-is-not-a-function-error
+if test -f ~/.rvm/scripts/rvm; then
+    [ "$(type -t rvm)" = "function" ] || source ~/.rvm/scripts/rvm
+fi
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
@@ -38,3 +43,12 @@ do
 done
 
 unset config_files
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#coda path
+export CODAPATH="/Applications/Coda 2.app"
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
